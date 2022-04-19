@@ -25,7 +25,8 @@ function drawGraph() {
                     }
                 }
             },
-            plugins: {},
+            plugins: {
+            },
             cubicInterpolationMode: 'monotone',
             pointRadius: 0.5,
             pointHoverRadius: 3.0,

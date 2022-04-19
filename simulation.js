@@ -6,10 +6,10 @@
 const speed_of_sound = 330;
 const source_frequency = 991;
 let detected = false;
-let fps;
-let current_fps;
+let time_step;
+let current_time_step;
 
-let increased_fps=10000;
+let reduced_time_step=1e-4;
 
 // arrays
 let signals = [];
@@ -40,13 +40,13 @@ function doppler(source, detector) {
     let components_along = LinAlg.comp(source_pos, detector_pos, source_vel, detector_vel);
     if (t_em >= 0) {
         if (!detected) {
-            current_time -= 1 / current_fps;
-            current_fps = increased_fps;
-	    current_time -= 1 / current_fps;
+            current_time -= current_time_step;
+            current_time_step = reduced_time_step;
+            current_time -= current_time_step;
             detected = true;
-	    return NaN;
+	        return NaN;
         }
-        else { current_fps = fps; }
+        else { current_time_step = time_step; }
         return f0 * (vc + components_along[1]) / (vc - components_along[0]);
     }
     else return NaN;
@@ -55,8 +55,8 @@ function doppler(source, detector) {
 function initParams() {
     simul_end_time = Number.parseFloat(simul_end_time_input.value);
     simul_start_time = Number.parseFloat(simul_start_time_input.value);
-    fps = Number.parseInt(fps_input.value);
-    current_fps=fps;
+    time_step = Number.parseFloat(time_step_input.value);
+    current_time_step=time_step;
     signals = [];
     timestamps = [];
     current_time = simul_start_time;
@@ -73,10 +73,9 @@ function initParams() {
     detectors.push(new Detector(Number.parseFloat(pos_x_input.value), Number.parseFloat(pos_y_input.value), 0, Number.parseFloat(vel_x_input.value), Number.parseFloat(vel_y_input.value), 0));
 
     if (graph !== undefined) graph.destroy();
-
     while (current_time < simul_end_time) {
         timestamps.push(Number.parseFloat(current_time.toFixed(6)));
-        current_time += 1/current_fps;
+        current_time += current_time_step;
         current_frame += 1;
 
         // generate signals
