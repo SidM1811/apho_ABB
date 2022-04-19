@@ -27,7 +27,7 @@ let vel_y_input = document.getElementById("vel-y-input");
 
 let simul_start_time_input = document.getElementById("simul-start-time-input");
 let simul_end_time_input = document.getElementById("simul-end-time-input");
-let fps_input = document.getElementById("fps-input");
+let time_step_input = document.getElementById("time-step-input");
 
 window.onload = function () {
     defaultParams();
@@ -38,7 +38,8 @@ function defaultParams() {
     pos_y_input.value = 0;
     vel_x_input.value = 0;
     vel_y_input.value = 0;
-    simul_start_time_input.value = 25;
-    simul_end_time_input.value = 50;
-    fps_input.value = 60;
+    simul_start_time_input.value = 0;
+    simul_end_time_input.value = 25;
+    time_step_input.value = 0.02;
+    initParams();
 }
