@@ -9,7 +9,7 @@ function drawGraph() {
                 backgroundColor: ["#ffffff"],
                 borderColor: ["#ffffff"],
                 spanGaps: false,
-                showLine: false,
+                showLine: true,
                 color: ["#ffffff"],
             }]
         },
