@@ -26,6 +26,13 @@ function drawGraph() {
                 }
             },
             plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            return "Time (s): " + context.parsed.x+" Frequency (Hz): " + context.parsed.y.toFixed(4);
+                        }
+                    }
+                }
             },
             cubicInterpolationMode: 'monotone',
             pointRadius: 0.5,
