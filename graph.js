@@ -4,7 +4,7 @@ function drawGraph() {
         data: {
             labels: timestamps,
             datasets: [{
-                label: "Frequency (in Hz).",
+                label: "Frequency (Hz).",
                 data: signals,
                 backgroundColor: ["#ffffff"],
                 borderColor: ["#ffffff"],
@@ -14,8 +14,18 @@ function drawGraph() {
             }]
         },
         options: {
-	    plugins:{
-	    },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Time (s)',
+                        font: {
+                            size: 20
+                        }
+                    }
+                }
+            },
+            plugins: {},
             cubicInterpolationMode: 'monotone',
             pointRadius: 0.5,
             pointHoverRadius: 3.0,

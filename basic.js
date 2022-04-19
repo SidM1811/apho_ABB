@@ -36,7 +36,7 @@ window.onload = function () {
 function defaultParams() {
     pos_x_input.value = 0;
     pos_y_input.value = 0;
-    vel_x_input.value = 20;
+    vel_x_input.value = 0;
     vel_y_input.value = 0;
     simul_start_time_input.value = 25;
     simul_end_time_input.value = 50;
