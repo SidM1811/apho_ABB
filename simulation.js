@@ -84,8 +84,8 @@ function initParams() {
     timestamps=timestamps.slice(2);
     signals=signals.slice(2);
     //for checking only
-    //console.log(timestamps);
-    //console.log(signals);
+    console.log(timestamps);
+    console.log(signals);
     drawGraph();
     //detectExtrema();
 }
