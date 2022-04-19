@@ -34,7 +34,7 @@ function drawGraph() {
                     }
                 }
             },
-            cubicInterpolationMode: 'monotone',
+            cubicInterpolationMode: 'linear',
             pointRadius: 0.5,
             pointHoverRadius: 3.0,
             borderWidth: 1.0,

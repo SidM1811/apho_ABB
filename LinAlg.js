@@ -32,11 +32,11 @@ class LinAlg {
         return [LinAlg.dot(LinAlg.normalise(LinAlg.subtract(p2, p1)), v1), LinAlg.dot(LinAlg.normalise(LinAlg.subtract(p1, p2)), v2)];
     }
     static velocity(obj, t) {
-        let ε = 1e-4;
+        let ε = 1e-6;
         return LinAlg.mul(1 / ε, (LinAlg.subtract(obj.position(t + ε), obj.position(t))));
     }
     static find_em(t, vc, source, detector) {
-        let ε = 1e-4;
+        let ε = 1e-6;
         let α = 0.1;
         let t_b = t;
         let error = t_b + LinAlg.magnitude(LinAlg.subtract(source.position(t_b), detector.position(t))) / vc - t;

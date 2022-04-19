@@ -66,7 +66,7 @@ function initParams() {
 
     // SET PARAMS HERE
     // (x, y, z, vx, vy, vz, R, angular_velocity)
-    source = new Source(5, 7, 0, 200, 100, 0, 120, 1.5);
+    source = new Source(5, 7, 0, 80, 39, 0, 120, 1.5);
 
     detectors = [];
     // (x, y, z, vx, vy, vz)
@@ -74,18 +74,17 @@ function initParams() {
 
     if (graph !== undefined) graph.destroy();
     while (current_time < simul_end_time) {
+        // generate signals
+        addDoppler(source);
         timestamps.push(Number.parseFloat(current_time.toFixed(6)));
         current_time += current_time_step;
         current_frame += 1;
-
-        // generate signals
-        addDoppler(source);
     }
+    console.log(timestamps);
+    console.log(signals);
     timestamps=timestamps.slice(2);
     signals=signals.slice(2);
     //for checking only
-    console.log(timestamps);
-    console.log(signals);
     drawGraph();
     //detectExtrema();
 }
