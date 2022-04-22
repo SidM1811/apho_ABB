@@ -9,7 +9,8 @@ let detected = false;
 let time_step;
 let current_time_step;
 
-let reduced_time_step=1e-4;
+let reduced_time_step;
+const reducing_factor = 200;
 
 // arrays
 let signals = [];
@@ -25,7 +26,7 @@ let current_frame;
 let current_time;
 
 function addDoppler(source) {
-    for (let detector of detectors) signals.push(Number.parseFloat(doppler(source, detector).toFixed(6)));
+    for (let detector of detectors) signals.push(Number.parseFloat(doppler(source, detector)));
 }
 
 function doppler(source, detector) {
@@ -56,7 +57,8 @@ function initParams() {
     simul_end_time = Number.parseFloat(simul_end_time_input.value);
     simul_start_time = Number.parseFloat(simul_start_time_input.value);
     time_step = Number.parseFloat(time_step_input.value);
-    current_time_step=time_step;
+    current_time_step = time_step;
+    reduced_time_step = time_step/reducing_factor;
     signals = [];
     timestamps = [];
     current_time = simul_start_time;
@@ -76,7 +78,7 @@ function initParams() {
     while (current_time < simul_end_time) {
         // generate signals
         addDoppler(source);
-        timestamps.push(Number.parseFloat(current_time.toFixed(6)));
+        timestamps.push(Number.parseFloat(current_time));
         current_time += current_time_step;
         current_frame += 1;
     }
