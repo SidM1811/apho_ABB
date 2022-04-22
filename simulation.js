@@ -36,8 +36,8 @@ function doppler(source, detector) {
     let t_em = LinAlg.find_em(current_time, vc, source, detector);
     let source_pos = source.position(t_em);
     let detector_pos = detector.position(current_time);
-    let source_vel = LinAlg.velocity(source, t_em);
-    let detector_vel = LinAlg.velocity(detector, current_time);
+    let source_vel = source.velocity(t_em);
+    let detector_vel = detector.velocity(current_time);
     let components_along = LinAlg.comp(source_pos, detector_pos, source_vel, detector_vel);
     if (t_em >= 0) {
         if (!detected) {

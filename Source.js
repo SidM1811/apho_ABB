@@ -19,4 +19,7 @@ class Source{
     position(t){
         return [this.x+this.vx*t+this.R*Math.cos(this.ω*t),this.y+this.vy*t+this.R*Math.sin(this.ω*t),this.z+this.vz*t];
     }
+    velocity(t) {
+        return [this.vx - this.ω * this.R * Math.sin(this.ω * t), this.vy + this.ω * this.R * Math.cos(this.ω * t),this.vz]
+    }
 }

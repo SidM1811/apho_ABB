@@ -10,6 +10,9 @@ class Detector {
     position(t) {
         return [this.x + this.vx * t, this.y + this.vy * t, this.z + this.vz * t];
     }
+    velocity(t) {
+        return [this.vx, this.vy, this.vz];
+    }
     render(t) {
         context.fillStyle = "#1f51ff";
         context.beginPath();
