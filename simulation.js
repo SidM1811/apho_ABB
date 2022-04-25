@@ -82,8 +82,8 @@ function initParams() {
         current_time += current_time_step;
         current_frame += 1;
     }
-    console.log(timestamps);
-    console.log(signals);
+    //console.log(timestamps);
+    //console.log(signals);
     timestamps=timestamps.slice(2);
     signals=signals.slice(2);
     //for checking only
