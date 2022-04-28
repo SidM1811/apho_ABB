@@ -76,7 +76,7 @@ function initParams() {
     let dist_angle = toRadians(Number.parseFloat(dist_angle_input.value));
     let vel = Number.parseFloat(vel_input.value);
     let vel_angle = Number.parseFloat(vel_angle_input.value)
-    detectors.push(new Detector(source.x + source.R + dist * Math.cos(dist_angle), source.y + dist * Math.sin(dist_angle), 0, vel * Math.cos(vel_angle), vel * Math.cos(vel_angle), 0));
+    detectors.push(new Detector(dist * Math.cos(dist_angle), dist * Math.sin(dist_angle), 0, vel * Math.cos(vel_angle), vel * Math.cos(vel_angle), 0));
 
     if (graph !== undefined) graph.destroy();
     while (current_time < simul_end_time) {
