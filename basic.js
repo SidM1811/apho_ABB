@@ -20,10 +20,10 @@ let pause_button = document.getElementById("pause-button");
 
 let table = document.getElementById("table");
 
-let pos_x_input = document.getElementById("pos-x-input");
-let pos_y_input = document.getElementById("pos-y-input");
-let vel_x_input = document.getElementById("vel-x-input");
-let vel_y_input = document.getElementById("vel-y-input");
+let dist_input = document.getElementById("dist-input");
+let dist_angle_input = document.getElementById("dist-angle-input");
+let vel_input = document.getElementById("vel-input");
+let vel_angle_input = document.getElementById("vel-angle-input");
 
 let simul_start_time_input = document.getElementById("simul-start-time-input");
 let simul_end_time_input = document.getElementById("simul-end-time-input");
@@ -34,10 +34,10 @@ window.onload = function () {
 }
 
 function defaultParams() {
-    pos_x_input.value = 0;
-    pos_y_input.value = 0;
-    vel_x_input.value = 0;
-    vel_y_input.value = 0;
+    dist_input.value = 0;
+    dist_angle_input.value = 0;
+    vel_input.value = 0;
+    vel_angle_input.value = 0;
     simul_start_time_input.value = 0;
     simul_end_time_input.value = 25;
     time_step_input.value = 0.02;
