@@ -20,8 +20,21 @@ function drawGraph() {
                         display: true,
                         text: 'Time (s)',
                         font: {
-                            size: 20
-                        }
+                            size: 20,
+                        },
+                        color:'white'
+                    },
+                    ticks: {color:'white'},
+                    grid: {
+                        color: 'rgba(255,255,255,0.3)',
+                        borderColor: 'white'
+                    }
+                },
+                y: {
+                    ticks: { color: 'white' },
+                    grid: {
+                        color: 'rgba(255,255,255,0.3)',
+                        borderColor: 'white'
                     }
                 }
             },
@@ -31,6 +44,11 @@ function drawGraph() {
                         label: function (context) {
                             return "Time (s): " + context.parsed.x.toFixed(6) + " Frequency (Hz): " + context.parsed.y.toFixed(6);
                         }
+                    }
+                },
+                legend: {
+                    labels: {
+                        color: 'white'
                     }
                 }
             },
