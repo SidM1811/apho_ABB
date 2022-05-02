@@ -14,7 +14,6 @@ function drawGraph() {
             }]
         },
         options: {
-            interaction: { mode: 'index' },
             scales: {
                 x: {
                     title: {
