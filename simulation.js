@@ -57,6 +57,21 @@ function initParams() {
     simul_end_time = Number.parseFloat(simul_end_time_input.value);
     simul_start_time = Number.parseFloat(simul_start_time_input.value);
     time_step = Number.parseFloat(time_step_input.value);
+
+    // handle blanks
+    if (Number.isNaN(simul_end_time)) {
+        simul_end_time = 0;
+        simul_end_time_input.value = "0";
+    }
+    if (Number.isNaN(simul_start_time)) {
+        simul_start_time = 0;
+        simul_start_time_input.value = "0";
+    }
+    if (Number.isNaN(time_step)) {
+        time_step = 0.01;
+        time_step_input.value = "0.01";
+    }
+
     current_time_step = time_step;
     reduced_time_step = time_step/reducing_factor;
     signals = [];
@@ -66,16 +81,34 @@ function initParams() {
     detected = false;
     //table.innerHTML = "<tr><th>Type</th><th>Frequency (Hz)</th><th>Timestamp (s)</th></tr>";
 
-    // SET PARAMS HERE
-    // (x, y, z, vx, vy, vz, R, angular_velocity)
-    source = new Source(5, 7, 0, 80, 39, 0, 120, 1.5);
 
-    detectors = [];
-    // (x, y, z, vx, vy, vz)
     let dist = Number.parseFloat(dist_input.value);
     let dist_angle = toRadians(Number.parseFloat(dist_angle_input.value));
     let vel = Number.parseFloat(vel_input.value);
-    let vel_angle = Number.parseFloat(vel_angle_input.value)
+    let vel_angle = Number.parseFloat(vel_angle_input.value);
+
+    // handle blanks
+    if (Number.isNaN(dist)) {
+        dist = 0;
+        dist_input.value = "0";
+    }
+    if (Number.isNaN(dist_angle)) {
+        dist_angle = 0;
+        dist_angle_input.value = "0";
+    }
+    if (Number.isNaN(vel)) {
+        vel = 0;
+        vel_input.value = "0";
+    }
+    if (Number.isNaN(vel_angle)) {
+        vel_angle = 0;
+        vel_angle_input.value = "0";
+    }
+
+    // SET PARAMS HERE
+    // (x, y, z, vx, vy, vz, R, angular_velocity)
+    source = new Source(5, 7, 0, 80, 39, 0, 120, 1.5);
+    detectors = [];
     detectors.push(new Detector(dist * Math.cos(dist_angle), dist * Math.sin(dist_angle), 0, vel * Math.cos(vel_angle), vel * Math.cos(vel_angle), 0));
 
     if (graph !== undefined) graph.destroy();
