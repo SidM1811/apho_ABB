@@ -136,7 +136,7 @@ function initParams() {
 }
 function dropout(distance) {
     const lower = 16000;
-    const upper = 20000;
-    let prob = (distance < lower ? 0 : 1);
+    const rate = 2000;
+    let prob = (distance < lower ? 0 : 1 - Math.exp(-(distance-lower)/rate));
     return prob;
 }
