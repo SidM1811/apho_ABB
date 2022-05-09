@@ -137,6 +137,6 @@ function initParams() {
 function dropout(distance) {
     const lower = 16000;
     const upper = 20000;
-    let prob = (distance < lower ? 0 : (distance > upper ? 1 : (distance - lower) / (upper - lower)));
+    let prob = (distance < lower ? 0 : 1);
     return prob;
 }
