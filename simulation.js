@@ -27,11 +27,7 @@ let current_time;
 
 function addDoppler() {
     for (let detector of detectors) {
-        let sep = LinAlg.magnitude(LinAlg.subtract(source.position(current_time), detector.position(current_time)));
-        if (1 - dropout(sep) > Math.random()) {
-            signals.push(Number.parseFloat(doppler(source, detector)));
-        }
-        else signals.push(2*Math.random()*signals[signals.length-1])
+        signals.push(Number.parseFloat(doppler(source, detector)));
         timestamps.push(Number.parseFloat(current_time));
     }
 }
@@ -133,10 +129,4 @@ function initParams() {
     //for checking only
     drawGraph();
     //detectExtrema();
-}
-function dropout(distance) {
-    const lower = 16000;
-    const upper = 20000;
-    let prob = (distance < lower ? 0 : 1);
-    return prob;
 }
