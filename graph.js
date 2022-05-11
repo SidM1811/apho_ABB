@@ -31,6 +31,14 @@ function drawGraph() {
                     }
                 },
                 y: {
+                    title: {
+                        display: true,
+                        text: 'Frequency (Hz)',
+                        font: {
+                            size: 20,
+                        },
+                        color: 'white'
+                    },
                     ticks: { color: 'white' },
                     grid: {
                         color: 'rgba(255,255,255,0.3)',
@@ -42,7 +50,7 @@ function drawGraph() {
                 tooltip: {
                     callbacks: {
                         label: function (context) {
-                            return "Time (s): " + context.parsed.x.toFixed(6) + " Frequency (Hz): " + context.parsed.y.toFixed(6);
+                            return "Time (s): " + context.parsed.x.toFixed(6) + " Frequency (Hz): " + context.parsed.y.toFixed(4);
                         }
                     }
                 },
