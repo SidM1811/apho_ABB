@@ -48,7 +48,7 @@ function doppler(source, detector) {
             current_time_step = reduced_time_step;
             current_time -= current_time_step;
             detected = true;
-	        return NaN;
+            return NaN;
         }
         else { current_time_step = time_step; }
         return f0 * (vc + components_along[1]) / (vc - components_along[0]);
@@ -76,7 +76,7 @@ function initParams() {
     }
 
     current_time_step = time_step;
-    reduced_time_step = time_step/reducing_factor;
+    reduced_time_step = time_step / reducing_factor;
     signals = [];
     timestamps = [];
     current_time = simul_start_time;
@@ -110,13 +110,13 @@ function initParams() {
 
     // SET PARAMS HERE
     // (x, y, z, vx, vy, vz, R, angular_velocity)
-    source = new Source(5, 7, 0, 80, 39, 0, 120, 1.5);
+    source = new Source(300, 500, 0, 81, 43, 0, 120, 1.5);
     detectors = [];
     detectors.push(new Detector(dist * Math.cos(dist_angle), dist * Math.sin(dist_angle), 0, vel * Math.cos(vel_angle), vel * Math.cos(vel_angle), 0));
 
     if (graph !== undefined) graph.destroy();
 
-    while (current_time < simul_end_time ) {
+    while (current_time < simul_end_time) {
         // generate signals
         addDoppler(source)
         current_time += current_time_step;
@@ -124,8 +124,8 @@ function initParams() {
     }
     //console.log(timestamps);
     //console.log(signals);
-    timestamps=timestamps.slice(2);
-    signals=signals.slice(2);
+    timestamps = timestamps.slice(2);
+    signals = signals.slice(2);
     //for checking only
     drawGraph();
     //detectExtrema();
