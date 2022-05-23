@@ -71,13 +71,13 @@ function initParams() {
         simul_start_time_input.value = "0";
     }
     if (Number.isNaN(time_step)) {
-        time_step = 0.01;
-        time_step_input.value = "0.01";
+        time_step = 0.02;
+        time_step_input.value = "0.02";
     }
 
-    if (time_step < 0.01) {
-        time_step = 0.01;
-        time_step_input.value = "0.01";
+    if (time_step < 0.001) {
+        time_step = 0.001;
+        time_step_input.value = "0.001";
     }
 
     current_time_step = time_step;
