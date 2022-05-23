@@ -61,6 +61,11 @@ function initParams() {
     simul_start_time = Number.parseFloat(simul_start_time_input.value);
     time_step = Number.parseFloat(time_step_input.value);
 
+    if (time_step < 0.01) {
+        time_step = 0.01;
+        time_step_input.value = 0.01;
+    }
+
     // handle blanks
     if (Number.isNaN(simul_end_time)) {
         simul_end_time = 0;
