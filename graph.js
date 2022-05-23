@@ -20,6 +20,7 @@ function drawGraph() {
                         display: true,
                         text: 'Time (s)',
                         font: {
+                            family:"calibri",
                             size: 20,
                         },
                         color:'white'
@@ -35,6 +36,7 @@ function drawGraph() {
                         display: true,
                         text: 'Frequency (Hz)',
                         font: {
+                            family: "calibri",
                             size: 20,
                         },
                         color: 'white'
@@ -56,7 +58,11 @@ function drawGraph() {
                 },
                 legend: {
                     labels: {
-                        color: 'white'
+                        color: 'white',
+                        font: {
+                            family: "calibri",
+                            size:15
+                        }
                     }
                 }
             },
