@@ -4,7 +4,7 @@ function drawGraph() {
         data: {
             labels: timestamps,
             datasets: [{
-                label: "Frequency (Hz).",
+                label: "Frequency (Hz)",
                 data: signals,
                 backgroundColor: ["#ffffff"],
                 borderColor: ["#ffffff"],
@@ -52,7 +52,7 @@ function drawGraph() {
                 tooltip: {
                     callbacks: {
                         label: function (context) {
-                            return "Time (s): " + Math.round(context.parsed.x * 100) / 100 + " Frequency (Hz): " + context.parsed.y.toFixed(2);
+                            return "Time (s): " + Math.round(context.parsed.x * 1000) / 1000 + " Frequency (Hz): " + context.parsed.y.toFixed(2);
                         }
                     }
                 },
