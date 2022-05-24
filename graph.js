@@ -50,7 +50,7 @@ function drawGraph() {
                 tooltip: {
                     callbacks: {
                         label: function (context) {
-                            return "Time (s): " + context.parsed.x.toFixed(6) + " Frequency (Hz): " + context.parsed.y.toFixed(4);
+                            return "Time (s): " + Math.round(context.parsed.x * 100) / 100 + " Frequency (Hz): " + context.parsed.y.toFixed(2);
                         }
                     }
                 },
