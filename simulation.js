@@ -80,6 +80,10 @@ function initParams() {
         time_step_input.value = "0.001";
     }
 
+    if ((simul_end_time - simul_start_time) / time_step > 25000) {
+        simul_end_time = simul_end_time_input.value = simul_start_time + 25000 * time_step;
+    }
+
     current_time_step = time_step;
     reduced_time_step = time_step / reducing_factor;
     signals = [];
