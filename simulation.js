@@ -117,6 +117,12 @@ function initParams() {
         vel_angle_input.value = "0";
     }
 
+    // handle negatives
+    if (dist < 0) {
+        dist = 0;
+        dist_input.value = "0";
+    }
+
     // SET PARAMS HERE
     // (x, y, z, vx, vy, vz, R, angular_velocity)
     source = new Source(300, 500, 0, 81, 43, 0, 120, 1.5);
