@@ -75,13 +75,22 @@ function initParams() {
         time_step_input.value = "0.02";
     }
 
+    // handle special cases
+    if (simul_start_time < 0) {
+        simul_start_time = 0;
+        simul_start_time_input.value = "0";
+    }
     if (time_step < 0.001) {
         time_step = 0.001;
         time_step_input.value = "0.001";
     }
-
+    if (simul_end_time < simul_start_time) {
+        simul_end_time = simul_start_time;
+        simul_end_time_input.value = simul_start_time_input.value;
+    }
     if ((simul_end_time - simul_start_time) / time_step > 25000) {
-        simul_end_time = simul_end_time_input.value = simul_start_time + 25000 * time_step;
+        simul_end_time = simul_start_time + 25000 * time_step;
+        simul_end_time_input.value = simul_end_time;
     }
 
     current_time_step = time_step;
